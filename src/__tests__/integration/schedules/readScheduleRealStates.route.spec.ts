@@ -2,8 +2,8 @@ import supertest from "supertest";
 import { DataSource, DeepPartial } from "typeorm";
 import app from "../../../app";
 import { AppDataSource } from "../../../data-source";
-import { RealEstate } from "../../../entities";
 import { errorsMock, readScheduleRouteMock, tokenMock } from "../../mocks";
+import RealEstates from "../../../entities/RealEstates.entity";
 
 describe("GET /schedules/realEstate/:id", () => {
   let connection: DataSource;
@@ -11,7 +11,7 @@ describe("GET /schedules/realEstate/:id", () => {
   const baseUrl: string = "/schedules/realEstate";
   let realEstateID: string;
   let realEstateInvalidID: string = baseUrl + "/123456";
-  let readRealEstate: DeepPartial<RealEstate>;
+  let readRealEstate: DeepPartial<RealEstates>;
 
   beforeAll(async () => {
     await AppDataSource.initialize()

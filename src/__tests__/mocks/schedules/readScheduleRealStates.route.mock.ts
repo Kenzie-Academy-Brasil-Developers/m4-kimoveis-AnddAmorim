@@ -1,23 +1,22 @@
 import { Repository } from 'typeorm';
 import { AppDataSource } from '../../../data-source';
-import {
-  Address,
-  Category,
-  RealEstate,
-  Schedule,
-  User,
-} from '../../../entities';
+import RealEstates from '../../../entities/RealEstates.entity';
+import Addresses from '../../../entities/Adresses.entity';
+import User from '../../../entities/Users.entity';
+import Category from '../../../entities/Categories.entity';
+import Schedule from '../../../entities/Schedules.entity';
 
-type iRealEstateRepo = Repository<RealEstate>;
-type iAddressRepo = Repository<Address>;
+
+type iRealEstateRepo = Repository<RealEstates>;
+type iAddressRepo = Repository<Addresses>;
 type iUserRepo = Repository<User>;
 type iCategoryRepo = Repository<Category>;
 type iScheduleRepo = Repository<Schedule>;
 
 const manySchedules = async () => {
   const realEstateRepo: iRealEstateRepo =
-    AppDataSource.getRepository(RealEstate);
-  const addressRepo: iAddressRepo = AppDataSource.getRepository(Address);
+    AppDataSource.getRepository(RealEstates);
+  const addressRepo: iAddressRepo = AppDataSource.getRepository(Addresses);
   const userRepo: iUserRepo = AppDataSource.getRepository(User);
   const categoryRepo: iCategoryRepo = AppDataSource.getRepository(Category);
   const scheduleRepo: iScheduleRepo = AppDataSource.getRepository(Schedule);

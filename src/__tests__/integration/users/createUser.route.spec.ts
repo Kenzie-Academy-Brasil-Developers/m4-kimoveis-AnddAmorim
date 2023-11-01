@@ -1,9 +1,9 @@
 import supertest from 'supertest';
-import { Any, DataSource } from 'typeorm';
+import { DataSource } from 'typeorm';
 import app from '../../../app';
 import { AppDataSource } from '../../../data-source';
-import { User } from '../../../entities';
 import { createUserRouteMock } from '../../mocks';
+import User from '../../../entities/Users.entity';
 
 describe('POST /users', () => {
   let connection: DataSource;

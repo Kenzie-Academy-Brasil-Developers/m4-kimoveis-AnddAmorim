@@ -2,14 +2,14 @@ import supertest from "supertest";
 import { DataSource, DeepPartial } from "typeorm";
 import app from "../../../app";
 import { AppDataSource } from "../../../data-source";
-import { RealEstate } from "../../../entities";
 import { readRealEstateRouteMock } from "../../mocks";
+import RealEstates from "../../../entities/RealEstates.entity";
 
 describe("GET /realEstate", () => {
   let connection: DataSource;
 
   const baseUrl: string = "/realEstate";
-  let readRealEstate: Array<DeepPartial<RealEstate>>;
+  let readRealEstate: Array<DeepPartial<RealEstates>>;
 
   beforeAll(async () => {
     await AppDataSource.initialize()

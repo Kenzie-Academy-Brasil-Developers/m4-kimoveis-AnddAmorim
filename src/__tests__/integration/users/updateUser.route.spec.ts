@@ -2,8 +2,8 @@ import supertest from "supertest";
 import { DataSource } from "typeorm";
 import app from "../../../app";
 import { AppDataSource } from "../../../data-source";
-import { User } from "../../../entities";
 import { errorsMock, tokenMock, updateUserRouteMock } from "../../mocks";
+import User from "../../../entities/Users.entity";
 
 describe("PATCH /users", () => {
   let connection: DataSource;

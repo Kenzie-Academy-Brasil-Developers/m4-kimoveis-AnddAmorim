@@ -2,8 +2,8 @@ import supertest from "supertest";
 import { DataSource } from "typeorm";
 import app from "../../../app";
 import { AppDataSource } from "../../../data-source";
-import { Category } from "../../../entities";
 import { createCategoryRouteMock, errorsMock, tokenMock } from "../../mocks";
+import Category from "../../../entities/Categories.entity";
 
 describe("POST /categories", () => {
   let connection: DataSource;

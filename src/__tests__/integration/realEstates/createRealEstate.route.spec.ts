@@ -2,8 +2,10 @@ import supertest from 'supertest';
 import { DataSource } from 'typeorm';
 import app from '../../../app';
 import { AppDataSource } from '../../../data-source';
-import { Address, Category, RealEstate } from '../../../entities';
 import { createRealEstateRouteMock, errorsMock, tokenMock } from '../../mocks';
+import Category from '../../../entities/Categories.entity';
+import Addresses from '../../../entities/Adresses.entity';
+import RealEstates from '../../../entities/RealEstates.entity';
 
 describe('POST /realEstate', () => {
   let connection: DataSource;
@@ -53,8 +55,8 @@ describe('POST /realEstate', () => {
       categoryToCreate
     );
 
-    await AppDataSource.getRepository(Address).save(addressInfo);
-    await AppDataSource.getRepository(RealEstate).save(realEstateInfo);
+    await AppDataSource.getRepository(Addresses).save(addressInfo);
+    await AppDataSource.getRepository(RealEstates).save(realEstateInfo);
 
     const response = await supertest(app)
       .post(baseUrl)

@@ -2,13 +2,13 @@ import supertest from "supertest";
 import { DataSource } from "typeorm";
 import app from "../../../app";
 import { AppDataSource } from "../../../data-source";
-import { RealEstate } from "../../../entities";
 import { errorsMock, readCategoryRealStateRouteMock } from "../../mocks";
+import RealEstates from "../../../entities/RealEstates.entity";
 
 describe("GET /categories/:id/realEstate", () => {
   let connection: DataSource;
 
-  let categoryRealEstate: Array<RealEstate>;
+  let categoryRealEstate: Array<RealEstates>;
   let baseUrl: string = "/categories";
   const readInvalidIDUrl: string = baseUrl + "/123456/realEstate";
 

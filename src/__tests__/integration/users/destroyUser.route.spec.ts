@@ -2,8 +2,8 @@ import supertest from "supertest";
 import { DataSource } from "typeorm";
 import app from "../../../app";
 import { AppDataSource } from "../../../data-source";
-import { User } from "../../../entities";
 import { destroyUserRouteMock, errorsMock, tokenMock } from "../../mocks";
+import User from "../../../entities/Users.entity";
 
 describe("DELETE /users", () => {
   let connection: DataSource;

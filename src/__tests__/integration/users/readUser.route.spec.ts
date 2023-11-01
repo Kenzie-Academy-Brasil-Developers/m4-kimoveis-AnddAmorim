@@ -2,8 +2,8 @@ import supertest from 'supertest';
 import { DataSource, DeepPartial } from 'typeorm';
 import app from '../../../app';
 import { AppDataSource } from '../../../data-source';
-import { User } from '../../../entities';
 import { errorsMock, readUserRouteMock, tokenMock } from '../../mocks';
+import User from '../../../entities/Users.entity';
 
 describe('GET /users', () => {
   let connection: DataSource;

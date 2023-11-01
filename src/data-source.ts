@@ -1,16 +1,16 @@
-import { DataSource, DataSourceOptions } from 'typeorm';
-import path from 'path';
-import 'dotenv/config';
+import "dotenv/config";
+import {DataSource, DataSourceOptions} from "typeorm";
+import path from "path";
 
 const settings = (): DataSourceOptions => {
-  const entitiesPath: string = path.join(__dirname, './entities/**.{ts,js}');
-  const migrationPath: string = path.join(__dirname, './migrations/**.{ts,js}');
+  const entitiesPath: string = path.join(__dirname, "./entities/**.{ts,js}");
+  const migrationPath: string = path.join(__dirname, "./migrations/**.{ts,js}");
   const nodeEnv: string | undefined = process.env.NODE_ENV;
 
-  if (nodeEnv === 'test') {
+  if (nodeEnv === "test") {
     return {
-      type: 'sqlite',
-      database: ':memory:',
+      type: "sqlite",
+      database: ":memory:",
       synchronize: true,
       entities: [entitiesPath],
     };
@@ -21,7 +21,7 @@ const settings = (): DataSourceOptions => {
   if (!dbUrl) throw new Error("Missing env var: 'DATABASE_URL'");
 
   return {
-    type: 'postgres',
+    type: "postgres",
     url: dbUrl,
     logging: true,
     entities: [entitiesPath],
@@ -31,4 +31,4 @@ const settings = (): DataSourceOptions => {
 
 const AppDataSource = new DataSource(settings());
 
-export { AppDataSource };
+export {AppDataSource};
